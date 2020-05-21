@@ -77,5 +77,6 @@ export const getFirstPageInSection = (section) => {
     }
     dir = firstChild.dir;
   }
-  return pages.find((p) => p.rootDir === dir);
+
+  return pages.find((p) => p.path.indexOf(dir) === 1);
 };
