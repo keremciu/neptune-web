@@ -21,6 +21,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=12.16.3"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
