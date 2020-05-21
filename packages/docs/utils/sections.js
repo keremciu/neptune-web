@@ -70,5 +70,6 @@ export default [
         dir: 'components/dynamicForms',
       },
     ],
+    searchable: true,
   },
 ];
