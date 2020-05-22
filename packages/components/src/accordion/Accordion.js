@@ -27,6 +27,13 @@ class Accordion extends PureComponent {
     indexOpen: this.props.indexOpen,
   };
 
+  /* eslint-disable react/no-did-update-set-state */
+  componentDidUpdate(prevProps) {
+    if (prevProps.indexOpen !== this.props.indexOpen) {
+      this.setState({ indexOpen: this.props.indexOpen });
+    }
+  }
+
   handleOnClick = (index) => {
     this.setState((prevState) => {
       return { indexOpen: prevState.indexOpen === index ? -1 : index };
