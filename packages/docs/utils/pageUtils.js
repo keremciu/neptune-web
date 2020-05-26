@@ -1,3 +1,5 @@
+import React from 'react';
+
 const getPages = () => {
   const req = require.context('../pages/', true, /mdx$/);
 
@@ -79,3 +81,10 @@ export const getFirstPageInSection = (section) => {
   }
   return pages.find((p) => p.rootDir === dir);
 };
+
+export const addBasePath = (url) =>
+  `${process.env.NODE_ENV === 'production' ? '/neptune-web/' : '/'}${
+    url.indexOf('/') === 0 ? url.slice(1) : url
+  }`;
+
+export const DocLink = ({ href, children }) => <a href={addBasePath(href)}>{children}</a>;
