@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [27.3.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@27.2.1...@transferwise/components@27.3.0) (2020-05-22)
+
+
+### Features
+
+* add id prop to AccordionItem component ([#374](https://github.com/transferwise/neptune-web/issues/374)) ([9d056e1](https://github.com/transferwise/neptune-web/commit/9d056e1839dd0eb7b5685a825184e6f2f86b9697))
+
+
+
+
+
+## [27.2.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@27.2.0...@transferwise/components@27.2.1) (2020-05-21)
+
+
+### Bug Fixes
+
+* removing visualizer for now, as nanoid is not installing correctly on some machines ([#371](https://github.com/transferwise/neptune-web/issues/371)) ([da22bc6](https://github.com/transferwise/neptune-web/commit/da22bc63f54a8068b098a5023f4b3a726223ca97))
+
+
+
+
+
 # [27.2.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@27.1.0...@transferwise/components@27.2.0) (2020-05-15)
 
 
