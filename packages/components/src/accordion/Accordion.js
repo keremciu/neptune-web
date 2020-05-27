@@ -44,16 +44,20 @@ class Accordion extends PureComponent {
   };
 
   render() {
-    return this.props.items.map((item, index) => (
-      <AccordionItem
-        id={item.id}
-        key={item.id || index}
-        index={index}
-        isOpen={index === this.state.indexOpen}
-        onClick={this.handleOnClick}
-        {...item}
-      />
-    ));
+    return (
+      <>
+        {this.props.items.map((item, index) => (
+          <AccordionItem
+            id={item.id}
+            key={item.id || index}
+            index={index}
+            isOpen={index === this.state.indexOpen}
+            onClick={this.handleOnClick}
+            {...item}
+          />
+        ))}
+      </>
+    );
   }
 }
 
