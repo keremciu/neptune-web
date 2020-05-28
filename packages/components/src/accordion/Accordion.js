@@ -9,6 +9,7 @@ class Accordion extends PureComponent {
   static propTypes = {
     items: Types.arrayOf(
       Types.shape({
+        id: Types.string,
         title: Types.node.isRequired,
         content: Types.node.isRequired,
       }),
@@ -26,6 +27,13 @@ class Accordion extends PureComponent {
     indexOpen: this.props.indexOpen,
   };
 
+  /* eslint-disable react/no-did-update-set-state */
+  componentDidUpdate(prevProps) {
+    if (prevProps.indexOpen !== this.props.indexOpen) {
+      this.setState({ indexOpen: this.props.indexOpen });
+    }
+  }
+
   handleOnClick = (index) => {
     this.setState((prevState) => {
       return { indexOpen: prevState.indexOpen === index ? -1 : index };
@@ -36,15 +44,20 @@ class Accordion extends PureComponent {
   };
 
   render() {
-    return this.props.items.map((item, index) => (
-      <AccordionItem
-        key={index}
-        index={index}
-        isOpen={index === this.state.indexOpen}
-        onClick={this.handleOnClick}
-        {...item}
-      />
-    ));
+    return (
+      <>
+        {this.props.items.map((item, index) => (
+          <AccordionItem
+            id={item.id}
+            key={item.id || index}
+            index={index}
+            isOpen={index === this.state.indexOpen}
+            onClick={this.handleOnClick}
+            {...item}
+          />
+        ))}
+      </>
+    );
   }
 }
 

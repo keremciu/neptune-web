@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@2.2.2...@transferwise/dynamic-flows@2.2.3) (2020-05-28)
+
+
+### Bug Fixes
+
+*  babel minify renaming error ([#378](https://github.com/transferwise/neptune-web/issues/378)) ([cfaa8db](https://github.com/transferwise/neptune-web/commit/cfaa8db00b1283f330cf68a4606a4c0d31f8afc5))
+
+
+
+
+
+## [2.2.2](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@2.2.1...@transferwise/dynamic-flows@2.2.2) (2020-05-27)
+
+**Note:** Version bump only for package @transferwise/dynamic-flows
+
+
+
+
+
+## [2.2.1](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@2.2.0...@transferwise/dynamic-flows@2.2.1) (2020-05-26)
+
+
+### Bug Fixes
+
+* fixed changelogs and versions ([#377](https://github.com/transferwise/neptune-web/issues/377)) ([ba23ef2](https://github.com/transferwise/neptune-web/commit/ba23ef263f993b5f1f31227ab3b49570abb82aaa))
+
+
+
+
+
+# [2.2.0](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@2.1.4...@transferwise/dynamic-flows@2.2.0) (2020-05-26)
+
+
+### Features
+
+* neptune sprint 21 ([a9da4cd](https://github.com/transferwise/neptune-web/commit/a9da4cd0bba2535bc7bb8222ddb1cde9a27e6cba))
+
+
+
+
+
+## [2.1.4](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@2.1.3...@transferwise/dynamic-flows@2.1.4) (2020-05-22)
+
+**Note:** Version bump only for package @transferwise/dynamic-flows
+
+
+
+
+
 ## [2.1.3](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@2.1.2...@transferwise/dynamic-flows@2.1.3) (2020-05-21)
 
 **Note:** Version bump only for package @transferwise/dynamic-flows
