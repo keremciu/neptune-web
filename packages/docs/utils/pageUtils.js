@@ -82,9 +82,11 @@ export const getFirstPageInSection = (section) => {
   return pages.find((p) => p.rootDir === dir);
 };
 
-export const addBasePath = (url) =>
-  `${process.env.NODE_ENV === 'production' ? '/neptune-web/' : '/'}${
+export const addBasePath = (url) => {
+  console.log(process.env.NODE_ENV);
+  return `${process.env.NODE_ENV === 'production' ? '/neptune-web/' : '/'}${
     url.indexOf('/') === 0 ? url.slice(1) : url
   }`;
+};
 
 export const DocLink = ({ href, children }) => <a href={addBasePath(href)}>{children}</a>;
