@@ -37,12 +37,12 @@ const lessCompiler = () => {
 };
 
 const customProperties = () => {
-  return gulp.src([src]).pipe(`${dest}/variables`);
+  return gulp.src([src]).pipe(gulp.dest(`${dest}/variables`));
 };
 
 // Watch files
 const lessWatcher = () => {
-  gulp.watch([`${src}/*.less`], gulp.series(lessCompiler, customProperties));
+  return gulp.watch([src], gulp.series(lessCompiler, customProperties));
 };
 
 exports.lessWatcher = lessWatcher;
