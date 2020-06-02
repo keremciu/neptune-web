@@ -42,7 +42,7 @@ const customProperties = () => {
 
 // Watch files
 const lessWatcher = () => {
-  return gulp.watch([src], gulp.series(lessCompiler, customProperties));
+  gulp.watch([src], gulp.series(lessCompiler, customProperties));
 };
 
 exports.lessWatcher = lessWatcher;
