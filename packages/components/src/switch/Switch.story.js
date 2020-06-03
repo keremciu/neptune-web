@@ -7,5 +7,5 @@ export default {
 };
 
 export const basic = () => {
-  return <Switch onClick={(checked) => alert(checked)} />;
+  return <Switch onClick={(checked) => console.log(checked)} />;
 };
