@@ -37,7 +37,8 @@
     "test:watch": "jest --watch --env=jsdom --config=../../node_modules/@transferwise/test-config/jest.config.js",
     "test:bundleSize": "bundlesize",
     "lint": "eslint 'src/**/*.js'",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "create-component": "scaffold-react-component"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
@@ -56,6 +57,7 @@
     "@storybook/react": "^5.3.18",
     "@transferwise/less-config": "^1.0.1",
     "@transferwise/test-config": "^1.0.1",
+    "@transferwise/react-scaffold": "^1.0.0",
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
     "bundlesize": "^0.18.0",
