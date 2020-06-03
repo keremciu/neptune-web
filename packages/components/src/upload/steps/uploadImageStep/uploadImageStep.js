@@ -9,7 +9,7 @@ class UploadImageStep extends PureComponent {
     usAccept: Types.string.isRequired,
     usButtonText: Types.string.isRequired,
     usDisabled: Types.bool.isRequired,
-    usHelpImage: Types.string.isRequired,
+    usHelpImage: Types.oneOfType([Types.string, Types.node]).isRequired,
     usLabel: Types.string.isRequired,
     usPlaceholder: Types.string.isRequired,
   };
@@ -43,9 +43,10 @@ class UploadImageStep extends PureComponent {
         <div className="droppable-default-card" aria-hidden={isComplete}>
           <div className="droppable-card-content">
             <div className="m-b-3">
-              {usHelpImage && (
+              {typeof usHelpImage === 'string' && (
                 <img src={usHelpImage} alt={usLabel} className="thumbnail text-xs-center" />
               )}
+              {!!usHelpImage && usHelpImage}
               {!usHelpImage && (
                 <div className="circle circle-sm circle-inverse p-t-1">
                   <Upload size="md" />
