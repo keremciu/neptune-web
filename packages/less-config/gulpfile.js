@@ -3,26 +3,35 @@ const less = require('gulp-less');
 const postcss = require('gulp-postcss');
 const plumber = require('gulp-plumber');
 const cached = require('gulp-cached');
+const changed = require('gulp-changed');
 const dependents = require('gulp-dependents');
 const print = require('gulp-print').default;
-const filter = require('gulp-filter');
 const { argv } = require('yargs');
 const rename = require('gulp-rename');
 
-const dest = `${process.env.PWD}/${argv.dest || 'dist/css'}`;
-const src = `${process.env.PWD}/${argv.src || 'src/**'}/*.less`;
+const addPwd = (path) => `${process.env.PWD}/${path}`;
 
-// Less Compiler
-const lessCompiler = () => {
-  const excludeBundles = argv.dev
-    ? ['**', `!${process.env.PWD}/${argv.src}/*.bundle.less`]
-    : ['**'];
+const src = addPwd(argv.src || 'src/**');
+const dest = addPwd(argv.dest || 'dist/css');
+const watch = argv.watch ? addPwd(argv.watch) : src;
 
+// Custom props don't need to be compiled. For now we presume they're in the variables folder inside the main source.
+const copyCustomProps = () => {
   return gulp
-    .src([src])
+    .src([`${src}/variables/*.less`])
+    .pipe(changed('props')) // Only copy over files that aren't already in the destination
+    .pipe(gulp.dest(`${dest}/variables`));
+};
+
+// Watch props
+const watchCustomProps = () => gulp.watch([`${src}/variables/*.less`], copyCustomProps);
+
+// Compile all files
+const compileLess = () => {
+  return gulp
+    .src([`${src}/*.less`])
     .pipe(cached('less'))
     .pipe(dependents())
-    .pipe(filter(excludeBundles))
     .pipe(print((filepath) => `compiled: ${filepath}`))
     .pipe(plumber())
     .pipe(less())
@@ -36,15 +45,11 @@ const lessCompiler = () => {
     .pipe(gulp.dest(dest));
 };
 
-const customProperties = () => {
-  return gulp.src([src]).pipe(gulp.dest(`${dest}/variables`));
-};
+// Recompile any changed file
+const watchLess = () => gulp.watch([watch], compileLess);
 
-// Watch files
-const lessWatcher = () => {
-  gulp.watch([src], gulp.series(lessCompiler, customProperties));
-};
+exports.compileLess = compileLess;
+exports.watchLess = watchLess;
 
-exports.lessWatcher = lessWatcher;
-exports.lessCompiler = lessCompiler;
-exports.customProperties = customProperties;
+exports.copyCustomProps = copyCustomProps;
+exports.watchCustomProps = watchCustomProps;

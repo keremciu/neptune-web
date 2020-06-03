@@ -26,7 +26,7 @@
     "docs:watch-less": "gulp lessWatcher --gulpfile=../../node_modules/@transferwise/less-config --dest=src",
     "build": "npm-run-all build:*",
     "build:clean": "rm -rf lib build",
-    "build:compile-css": "gulp lessCompiler --gulpfile=../../node_modules/@transferwise/less-config --dest=src",
+    "build:compile-css": "gulp compileLess --dest=src",
     "build:umd": "NODE_ENV=umd rollup -c",
     "build:umd-nopolyfill": "NODE_ENV=umd-nopolyfill rollup -c",
     "build:es": "NODE_ENV=es babel src -d build/es/polyfill --ignore '**/*.spec.js','**/*.story.js'",
