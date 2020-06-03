@@ -27,7 +27,7 @@
     "build:copy-assets": "npm-run-all --parallel copy:*",
     "build:compile-less": "gulp compileLess --src='src/less'",
     "build:copy-props": "gulp copyCustomProps --src='src/less'",
-    "dev": "gulp watchLess --watch='src/less/**' --src='src/less'",
+    "dev": "gulp watchLess --watch='src/less/**' --src='src/less/**'",
     "docs": "yarn dev",
     "copy:images": "cpx 'src/img/**' dist/img",
     "copy:fonts": "cpx 'src/fonts/*' dist/fonts",

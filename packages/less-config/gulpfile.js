@@ -8,6 +8,7 @@ const dependents = require('gulp-dependents');
 const print = require('gulp-print').default;
 const { argv } = require('yargs');
 const rename = require('gulp-rename');
+const filter = require('gulp-filter');
 
 const addPwd = (path) => `${process.env.PWD}/${path}`;
 
@@ -32,8 +33,9 @@ const compileLess = () => {
     .src([`${src}/*.less`])
     .pipe(cached('less'))
     .pipe(dependents())
-    .pipe(print((filepath) => `compiled: ${filepath}`))
     .pipe(plumber())
+    .pipe(filter(['**', '!**/_*.less'])) // Don't output mixins
+    .pipe(print((filepath) => `compiled: ${filepath}`))
     .pipe(less())
     .pipe(postcss())
     .pipe(
