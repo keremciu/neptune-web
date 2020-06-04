@@ -60,7 +60,7 @@ export default class Alert extends Component {
             onClick={onDismiss}
             aria-label="Close"
           >
-            <span aria-hidden="true">×</span>
+            <span aria-hidden="true">hi hi hi hi hi hi hi </span>
           </button>
         )}
         {children}
