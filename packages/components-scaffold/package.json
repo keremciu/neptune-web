@@ -6,11 +6,11 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "colors": "^1.4.0",
+    "colors": "^1.3.3",
     "path": "^0.12.7",
     "prompt": "^1.0.0"
   },
   "bin": {
-    "scaffold-react-component": "./react/react-cli.js"
+    "scaffold-react-component": "./react/cli.js"
   }
 }

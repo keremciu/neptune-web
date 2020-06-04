@@ -57,7 +57,7 @@
     "@storybook/react": "^5.3.18",
     "@transferwise/less-config": "^1.0.1",
     "@transferwise/test-config": "^1.0.1",
-    "@transferwise/react-scaffold": "^1.0.0",
+    "@transferwise/components-scaffold": "^1.0.0",
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
     "bundlesize": "^0.18.0",
