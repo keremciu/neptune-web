@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Types from 'prop-types';
 import classnames from 'classnames';
 import './Switch.css';
+import { Check } from '@transferwise/icons';
 
 /**
  * Switch docs.
@@ -23,11 +24,16 @@ const Switch = ({ onClick }) => {
 
   return (
     <span
-      className={classnames('switch', { 'switch--left': checked, 'switch--right': !checked })}
+      className={classnames('switch', {
+        'switch--unchecked': !checked,
+        'switch--checked': checked,
+      })}
       onClick={handleOnClick}
     >
       <input type="checkbox" checked={checked} onClick={handleOnClick} />
-      <span class="switch--thumb"></span>
+      <span class="switch--thumb">
+        <Check />
+      </span>
     </span>
   );
 };

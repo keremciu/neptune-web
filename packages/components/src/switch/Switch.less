@@ -1,42 +1,44 @@
-@import '@transferwise/neptune-css/dist/variables/_transitions.less';
+@import '@transferwise/neptune-css/src/less/variables/_transitions.less';
+
 .switch {
-  width: 58px;
-  height: 38px;
   display: inline-flex;
-  padding: 12px;
+  width: 44px;
+  height: 24px;
   z-index: 0;
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
   flex-shrink: 0;
   vertical-align: middle;
-  background-color: yellow;
-  border-radius: 50%;
-  display: none;
-  position: relative;
-
+  border: 1px solid #d3d5d8;
+  box-sizing: border-box;
+  border-radius: 15.5px;
+  align-items: center;
+  padding: 4px;
   &--thumb {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-      0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background-color: currentColor;
+    background: #ffffff;
+    border: 1px solid #d3d5d8;
     transition: var(--transition-transform);
   }
-  &--left {
+  &--unchecked {
     .switch--thumb {
       transform: translateX(0);
     }
   }
-  &--right {
+  &--checked {
+    background: #00b9ff;
     .switch--thumb {
-      transform: translateX(-50%);
+      border: none;
+      transform: translateX(100%);
     }
   }
 
   > input {
+    opacity: 0;
+    display: none;
     position: absolute;
     left: -100%;
   }
