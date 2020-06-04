@@ -19,4 +19,4 @@ ${name}.defaultProps = {};
 export default ${name};
 `;
 
-module.exports = templateEntryFile;
+export default templateEntryFile;

@@ -7,4 +7,4 @@ describe('${name}', () => {
 });
 `;
 
-module.exports = templateJestFile;
+export default templateJestFile;

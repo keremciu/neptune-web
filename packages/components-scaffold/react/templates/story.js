@@ -14,4 +14,4 @@ export const basic = () => {
 };
 `;
 
-module.exports = templateDocsFile;
+export default templateDocsFile;
