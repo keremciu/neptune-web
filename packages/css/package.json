@@ -33,8 +33,7 @@
     "docs": "yarn dev",
     "copy:images": "cpx 'src/img/**' dist/img",
     "copy:fonts": "cpx 'src/fonts/*' dist/fonts",
-    "prettier": "prettier --write src/less/*.less",
-    "testenv": "next dev"
+    "prettier": "prettier --write src/less/*.less"
   },
   "dependencies": {
     "bootstrap": "github:transferwise/bootstrap#semver:^5.20.0",
