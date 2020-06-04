@@ -1,5 +1,5 @@
 {
   "flags": {
-    "gulpfile": "node_modules/@transferwise/less-config/gulpfile.js"
+    "gulpfile": "../../node_modules/@transferwise/less-config/gulpfile.js"
   }
 }
