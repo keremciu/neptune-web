@@ -48,7 +48,7 @@ const compileLess = () => {
 };
 
 // Recompile any changed file
-const watchLess = () => gulp.watch([watch], compileLess);
+const watchLess = () => gulp.watch([watch, `!**/variables/*.less`], compileLess);
 
 exports.compileLess = compileLess;
 exports.watchLess = watchLess;
