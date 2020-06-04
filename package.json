@@ -55,7 +55,7 @@
     "docs": "lerna run docs --parallel --stream",
     "docs:build": "lerna run docs:build",
     "docs:deploy": "lerna run docs:deploy",
-    "docs:deploy-for-branch": "lerna run docs:deploy-for-branch",
+    "docs:deploy-to-branch": "lerna run docs:deploy-to-branch",
     "test": "lerna run test --stream",
     "test:watch": "cd packages/components && yarn test:watch",
     "clean": " npm-run-all clean:*",

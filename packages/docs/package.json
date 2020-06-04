@@ -7,8 +7,9 @@
   "scripts": {
     "docs": "node ./docgen.js && next dev",
     "build": "node ./docgen.js && node ./utils/bundleSize/getBundleSize.js && next build",
-    "docs:build": "next export -o docs-build && touch docs-build/.nojekyll",
-    "docs:deploy": "gh-pages --dotfiles -a -d docs-build",
+    "docs:build": "next export -o public && touch public/.nojekyll",
+    "docs:deploy": "gh-pages --dotfiles -a",
+    "docs:deploy-to-branch": "deploy-to-github-pages",
     "lint": "eslint components/ pages/",
     "lint:fix": "yarn lint --fix"
   },
@@ -55,7 +56,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "babel-plugin-inline-react-svg": "^1.1.1"
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "deploy-to-github-pages": "1.0.0-beta.1"
   },
   "peerDependencies": {
     "react": "16.13.1",
