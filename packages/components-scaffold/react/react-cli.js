@@ -4,11 +4,11 @@ const prompt = require('prompt');
 const path = require('path');
 const fs = require('fs');
 const colors = require('colors');
-const templateComponent = require('./templates/template.component');
+const templateComponent = require('./templates/component');
 // const templateStyleFile = require("./templates/templateStyleFile");
-const templateIndex = require('./templates/template.index');
-const templateJest = require('./templates/template.jest');
-const templateStory = require('./templates/template.story');
+const templateIndex = require('./templates/componentExport');
+const templateJest = require('./templates/jest');
+const templateStory = require('./templates/story');
 const { capitalizeFirstLetter, message } = require('./utils');
 
 const scrFolder = 'src';
