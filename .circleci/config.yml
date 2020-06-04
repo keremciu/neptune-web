@@ -37,10 +37,6 @@ aliases:
     name: Deploy docs
     command: yarn docs:deploy
 
-  - &deploy-docs-for-branch
-    name: Deploy docs for branch
-    command: yarn docs:deploy-for-branch
-
   - &lerna-publish
     name: Publish packages
     command: npx lerna publish -m "[skip ci] Release" --yes
@@ -101,14 +97,6 @@ jobs:
       - run: *build-docs
       - run: *set-github-credentials
       - run: *deploy-docs
-
-  deploy-docs-for-branch:
-    <<: *container
-    steps:
-      - *attach-workspace
-      - run: *build-docs
-      - run: *set-github-credentials
-      - run: *deploy-docs-for-branch
 
   conventional-commit-lint:
     <<: *container
@@ -171,16 +159,6 @@ workflows:
           filters:
             branches:
               only: master
-
-      - deploy-docs-for-branch:
-          context: frontend-build
-          requires:
-            - test
-          filters:
-            branches:
-              ignore:
-                - gh-pages
-                - master
 
       - deploy-docs-to-root:
           context: frontend-build
