@@ -1,4 +1,4 @@
-name: Trigger Deploy Command
+name: Slash Command Dispatch
 on:
   issue_comment:
     types: [created]
@@ -6,8 +6,18 @@ jobs:
   slashCommandDispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Deploy Command
+      - name: Slash Command Dispatch
         uses: peter-evans/slash-command-dispatch@v1
         with:
           token: ${{ secrets.DEPLOY_BRANCH_ACTION }}
-          commands: deploy-docs
+          commands: deploy-docs, hello-world
+      - name: Say hello
+        run: |
+          echo "Hello, I am a bot"
+      - name: Add reaction
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          token: ${{ secrets.DEPLOY_BRANCH_ACTION }}
+          repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
+          comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
+          reaction-type: hooray
