@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Logo from '../flowNavigation/logo';
+import CloseButton from '../common/CloseButton';
 
 import OverlayHeader from '.';
 
@@ -17,11 +18,7 @@ describe('Flow navigation', () => {
   }
 
   function closeButton() {
-    return component.find('.icon-close');
-  }
-
-  function closeButtonWithAvatar() {
-    return closeButton().hasClass('close-button-with-avatar');
+    return component.find(CloseButton);
   }
 
   function bottomBorderHidden() {
@@ -44,7 +41,6 @@ describe('Flow navigation', () => {
       url: props.avatar.url,
       profileType: props.profileType,
     });
-    expect(closeButtonWithAvatar()).toBe(true);
   });
 
   it(`doesn't show avatar if avatar is no provided`, () => {

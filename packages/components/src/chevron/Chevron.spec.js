@@ -1,39 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, cleanup } from '@testing-library/react';
 import Chevron from '.';
 
 const { Orientation, Size } = Chevron;
 
-describe('Option', () => {
+describe('Chevron', () => {
   const props = {
     orientation: Orientation.RIGHT,
     size: Size.SMALL,
-    flip: false,
-    animate: false,
   };
-  let wrapper;
 
-  beforeEach(() => {
-    wrapper = shallow(<Chevron {...props} />);
+  afterEach(() => {
+    cleanup();
   });
 
   it('has right classes when rendered with props', () => {
-    expect(wrapper.find('.chevron-container').hasClass('right')).toEqual(true);
-    expect(wrapper.find('.chevron-container').hasClass('sm')).toEqual(true);
+    const { container } = render(<Chevron {...props} />);
 
-    expect(wrapper.find('.chevron-container').hasClass('animate')).toEqual(false);
-    expect(wrapper.find('.chevron-container').hasClass('flip')).toEqual(false);
-  });
-
-  it('has animate class when animate prop is true', () => {
-    expect(wrapper.find('.chevron-container').hasClass('animate')).toEqual(false);
-    wrapper.setProps({ animate: true });
-    expect(wrapper.find('.chevron-container').hasClass('animate')).toEqual(true);
-  });
-
-  it('has flip class when flip prop is true', () => {
-    expect(wrapper.find('.chevron-container').hasClass('flip')).toEqual(false);
-    wrapper.setProps({ flip: true });
-    expect(wrapper.find('.chevron-container').hasClass('flip')).toEqual(true);
+    expect(container.querySelector('.tw-icon-chevron-right')).not.toBe(null);
   });
 });

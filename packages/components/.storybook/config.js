@@ -7,7 +7,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import theme from './common/theme';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'currency-flags/dist/currency-flags.min.css';
-import '@transferwise/icons/dist/icons.min.css';
+import '@transferwise/icons/lib/styles/main.min.css';
 
 const style = {
   display: 'flex',

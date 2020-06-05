@@ -6,6 +6,7 @@ import Avatar from './avatar';
 import Logo from './logo';
 import Stepper from '../stepper';
 import Header from '../header';
+import CloseButton from '../common/CloseButton';
 import { Theme, ProfileType } from '../common';
 
 import '@transferwise/neptune-css/dist/css/flowNavigation.css';
@@ -35,24 +36,6 @@ const FlowNavigation = ({
   theme,
 }) => {
   const avatar = done ? null : <Avatar url={avatarUrl} profileType={profileType} />;
-  const closeButton = onClose && (
-    <button
-      className={classNames(
-        'tw-flow-navigation__close-button',
-        'btn-link',
-        'text-no-decoration',
-        'icon',
-        'icon-close',
-        'icon-lg',
-        'm-l-3',
-        {
-          'close-button-with-avatar': !done,
-        },
-      )}
-      onClick={onClose}
-      aria-label="close button"
-    />
-  );
   return (
     <Header
       leftContent={
@@ -64,7 +47,7 @@ const FlowNavigation = ({
       rightContent={
         <div className="m-lg-t-1">
           {avatar}
-          {closeButton}
+          {onClose && <CloseButton onClick={onClose} />}
         </div>
       }
       bottomContent={

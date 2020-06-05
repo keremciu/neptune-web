@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import FlowNavigation from './';
 import BackButton from './backButton';
 import Logo from './logo';
+import CloseButton from '../common/CloseButton';
 
 describe('Flow navigation', () => {
   let component;
@@ -26,15 +27,11 @@ describe('Flow navigation', () => {
   }
 
   function closeButton() {
-    return component.find('.icon-close');
+    return component.find(CloseButton);
   }
 
   function backButton() {
     return component.find(BackButton);
-  }
-
-  function closeButtonWithAvatar() {
-    return closeButton().hasClass('close-button-with-avatar');
   }
 
   function bottomBorderHidden() {
@@ -77,7 +74,6 @@ describe('Flow navigation', () => {
       url: props.avatarUrl,
       profileType: props.profileType,
     });
-    expect(closeButtonWithAvatar()).toBe(true);
   });
 
   it('calls onClose callback when close button clicked', () => {
@@ -112,7 +108,6 @@ describe('Flow navigation', () => {
   it('hides the avatar if done is true', () => {
     component.setProps({ done: true });
     expect(avatar().length).toBe(0);
-    expect(closeButtonWithAvatar()).toBe(false);
   });
 
   it('hides the stepper if done is true', () => {

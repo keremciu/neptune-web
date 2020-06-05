@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Avatar from '../flowNavigation/avatar';
 import Logo from '../flowNavigation/logo';
 import Header from '../header';
+import CloseButton from '../common/CloseButton';
 import { Theme, ProfileType } from '../common';
 
 import '@transferwise/neptune-css/dist/css/flowNavigation.css';
@@ -21,22 +22,6 @@ import '@transferwise/neptune-css/dist/css/flowNavigation.css';
  * */
 
 const OverlayHeader = ({ avatar, profileType, onClose, theme }) => {
-  const closeButton = onClose && (
-    <button
-      className={classNames(
-        'tw-flow-navigation__close-button',
-        'btn-link',
-        'text-no-decoration',
-        'icon',
-        'icon-close',
-        'icon-lg',
-        'm-l-3',
-        'close-button-with-avatar',
-      )}
-      aria-label="close button"
-      onClick={onClose}
-    />
-  );
   return (
     <Header
       leftContent={
@@ -47,7 +32,7 @@ const OverlayHeader = ({ avatar, profileType, onClose, theme }) => {
       rightContent={
         <div className="m-lg-t-1">
           {avatar && <Avatar url={avatar.url} profileType={profileType} />}
-          {closeButton}
+          {onClose && <CloseButton onClick={onClose} />}
         </div>
       }
       className={classNames('tw-flow-navigation', 'tw-flow-navigation__wrapper', {

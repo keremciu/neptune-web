@@ -163,11 +163,11 @@ describe('Card', () => {
   };
   const chevron = (renderProps) => {
     const { container } = renderCard(renderProps);
-    return container.querySelector('.chevron');
+    return container.querySelector('.tw-icon');
   };
   const flippedChevron = (renderProps) => {
     const { container } = renderCard(renderProps);
-    return container.querySelector('.chevron-container.flip');
+    return container.querySelector('.tw-icon-chevron-up');
   };
   const contentPanel = (renderProps) => {
     const { container } = renderCard(renderProps);
