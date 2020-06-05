@@ -13,25 +13,18 @@ const Avatar = ({ size, badge, children, outlined }) => {
     [`${BASE_CLASS_NAME}--outlined`]: outlined,
   });
 
-  return (
-    <div className={classNames}>
-      <div className={`${BASE_CLASS_NAME}__content`}>{children}</div>
-      {badge && <div className={`${BASE_CLASS_NAME}__badge`}>{badge}</div>}
-    </div>
-  );
+  return <div className={classNames}>{children}</div>;
 };
 
 Avatar.Size = Size;
 
 Avatar.propTypes = {
   size: Types.oneOf([Avatar.Size.MEDIUM, Avatar.Size.LARGE]),
-  badge: Types.node,
   children: Types.node.isRequired,
   outlined: Types.bool,
 };
 
 Avatar.defaultProps = {
-  badge: null,
   outlined: false,
 };
 
