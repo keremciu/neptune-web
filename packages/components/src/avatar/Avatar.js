@@ -13,7 +13,11 @@ const Avatar = ({ size, badge, children, outlined }) => {
     [`${BASE_CLASS_NAME}--outlined`]: outlined,
   });
 
-  return <div className={classNames}>{children}</div>;
+  return (
+    <div className={classNames}>
+      <div className={`${BASE_CLASS_NAME}__content`}>{children}</div>
+    </div>
+  );
 };
 
 Avatar.Size = Size;
