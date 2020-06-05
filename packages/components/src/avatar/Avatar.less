@@ -22,48 +22,21 @@
   border-radius: 50%;
   overflow: hidden;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  & &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100% + @line-height-offset);
-    max-height: calc(100% + @line-height-offset);
+  & * {
+    max-height: 100%;
     max-width: 100%;
-    padding-top: @line-height-offset;
-
-    & * {
-      max-height: 100%;
-      max-width: 100%;
-      margin-top: -(@line-height-offset * 2);
-    }
-  }
-
-  & &__badge {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: @badge-diameter-sm;
-    height: @badge-diameter-sm;
-    margin: -@badge-diameter-sm 0 0 (@badge-diameter-sm * 2);
-    border-radius: 50%;
-    overflow: hidden;
-
-    & * {
-      max-height: 100%;
-    }
+    margin-top: -(@line-height-offset * 2);
+    max-height: 100%;
   }
 
   &--lg {
     width: @base-diameter-lg;
     height: @base-diameter-lg;
     font-size: @font-size-lg;
-
-    & .@{avatar-base-name}__badge {
-      width: @badge-diameter-lg;
-      height: @badge-diameter-lg;
-      margin: -@badge-diameter-lg 0 0 (@badge-diameter-lg * 2);
-    }
   }
 }
 
