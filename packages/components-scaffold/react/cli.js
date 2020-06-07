@@ -1,17 +1,38 @@
 #!/usr/bin/env node
 
-import prompt from 'prompt';
-import path from 'path';
-import fs from 'fs';
-import colors from 'colors';
-import templateComponent from './templates/component.js';
-// import 'templateStyleFile' from "./templates/templateStyleFile");
-import templateComponentExport from './templates/componentExport.js';
-import templateJest from './templates/jest.js';
-import templateStory from './templates/story.js';
-import { capitalizeFirstLetter, message } from './utils/index.js';
+const prompt = require('prompt');
+const { join } = require('path');
+const fs = require('fs');
+const { capitalizeFirstLetter, message } = require('./utils/index.js');
 
-const scrFolder = 'src';
+const templateDirectory = __dirname + '/templates';
+const fileFootprint = [];
+
+function rreaddirSync(dir) {
+  fs.readdirSync(dir)
+    .map((f) => join(dir, f))
+    .forEach((file) => {
+      const templateFile = require(file);
+      fileFootprint.push({ ...templateFile });
+    });
+}
+
+rreaddirSync(templateDirectory);
+
+async () => {
+  await fs.readdir(templateDirectory, function (err, files) {
+    //handling error
+    if (err) {
+      return console.log('Unable to scan directory: ' + err);
+    }
+
+    files.forEach(function (file) {
+      var templateFile = require(`${templateDirectory}/${file}`);
+
+      fileFootprint.push({ ...templateFile });
+    });
+  });
+};
 
 //
 // Start the prompt
@@ -24,72 +45,33 @@ prompt.start();
 const schema = {
   properties: {
     name: {
-      // pattern: /^[A-Za-z\s]+$/,
-      // message: 'Please insert a component name: Only letters allowed',
-      // required: true,
+      pattern: /^[A-Za-z\s]+$/,
+      message: 'Please insert a component name: Only letters allowed',
+      required: true,
       default: 'test',
-    },
-    path: {
-      message: 'Please insert a realtive component path: ',
-      default: `${scrFolder}`,
     },
   },
 };
-const files = [
-  {
-    name: 'Index file',
-    ext: 'js',
-    template: templateComponentExport,
-    fileName: 'index',
-  },
-  {
-    name: 'Component file',
-    ext: 'js',
-    template: templateComponent,
-  },
-  // {
-  //   name: "style file",
-  //   ext: "less",
-  //   template: templateStyleFile
-  // },
-  {
-    name: 'Jest file',
-    ext: 'spec.js',
-    template: templateJest,
-  },
-  {
-    name: 'Story file',
-    ext: 'story.js',
-    template: templateStory,
-  },
-];
+
 prompt.get(schema, (err, result) => {
   const capitalizedName = capitalizeFirstLetter(result.name);
 
-  const componentPath = `${process.env.INIT_CWD}/${result.path}/${result.name.toLowerCase()}`;
-
-  if (!fs.existsSync(componentPath)) {
-    try {
-      fs.mkdirSync(componentPath);
+  fileFootprint.map((file) => {
+    const componentPath = `${process.env.INIT_CWD}/${file.path}/${result.name.toLowerCase()}`;
+    const fileName = file.name(result.name);
+    if (!fs.existsSync(componentPath)) {
       try {
-        files.map((file) => {
-          try {
-            fs.writeFileSync(
-              `${componentPath}/${file.fileName || capitalizedName}.${file.ext}`,
-              file.template(capitalizedName),
-            );
-            console.log(message('success', file.name.green));
-          } catch (err) {
-            console.log(message('error', file.name.red, err));
-          }
-        });
+        fs.mkdirSync(componentPath);
       } catch (err) {
-        console.log(message('error', 'directory').red, err);
+        console.log('Error while creating directory'.red);
       }
-    } catch (err) {
-      console.log('Error while creating directory'.red);
     }
-  } else {
-    console.log('Directory already exists'.red);
-  }
+
+    try {
+      fs.writeFileSync(`${componentPath}/${fileName}.${file.ext}`, file.template(capitalizedName));
+      console.log(message('success', `${fileName} - ${file.type}`));
+    } catch (err) {
+      console.log(message('error', fileName, err));
+    }
+  });
 });
