@@ -4,13 +4,15 @@ import { shallow } from 'enzyme';
 import Avatar from './';
 
 describe('Avatar', () => {
-  let props = {
+  const props = {
     size: Avatar.Size.MEDIUM,
     children: '😎',
   };
   let wrapper;
 
-  beforeEach(() => (wrapper = shallow(<Avatar {...props} />)));
+  beforeEach(() => {
+    wrapper = shallow(<Avatar {...props} />);
+  });
 
   it('should render the given children', () => {
     expect(wrapper.text()).toBe(props.children);
@@ -25,7 +27,9 @@ describe('Avatar', () => {
   });
 
   describe('when we pass outlined prop', () => {
-    beforeEach(() => wrapper.setProps({ outlined: true }));
+    beforeEach(() => {
+      wrapper.setProps({ outlined: true });
+    });
 
     it('should have an outline modifier on the base element', () => {
       expect(wrapper.hasClass('avatar--outlined')).toBe(true);
