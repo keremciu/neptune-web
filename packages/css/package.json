@@ -28,9 +28,9 @@
     "build:compile-less": "gulp compileLess --src='src/less'",
     "build:copy-props": "gulp copyCustomProps --src='src/less'",
     "dev": "npm-run-all --parallel dev:*",
-    "dev:less": "gulp watchLess --watch='src/less/**' --src='src/less/**'",
+    "dev:less": "gulp watchLess --src='src/less/**'",
     "dev:props": "gulp watchCustomProps --src='src/less'",
-    "docs": "yarn dev",
+    "docs": "yarn build",
     "copy:images": "cpx 'src/img/**' dist/img",
     "copy:fonts": "cpx 'src/fonts/*' dist/fonts",
     "prettier": "prettier --write src/less/*.less"

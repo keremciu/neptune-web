@@ -14,7 +14,6 @@ const addPwd = (path) => `${process.env.PWD}/${path}`;
 
 const src = addPwd(argv.src || 'src/**');
 const dest = addPwd(argv.dest || 'dist/css');
-const watch = argv.watch ? addPwd(argv.watch) : src;
 
 // Custom props don't need to be compiled. For now we presume they're in the variables folder inside the main source.
 const copyCustomProps = () => {
@@ -48,7 +47,7 @@ const compileLess = () => {
 };
 
 // Recompile any changed file
-const watchLess = () => gulp.watch([watch, `!**/variables/*.less`], compileLess);
+const watchLess = () => gulp.watch([src, `!**/variables/*.less`], compileLess);
 
 exports.compileLess = compileLess;
 exports.watchLess = watchLess;
