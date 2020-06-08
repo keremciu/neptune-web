@@ -11,10 +11,9 @@ const Option = ({ currency, label, note, secondary, icon, classNames, selected }
         `${selected ? 'hidden-xs' : ''}`,
       ])}`
     : undefined;
-  const iconComponent = icon ? React.cloneElement(icon, { className: 'p-r-1' }) : icon;
   return (
     <span>
-      {currency ? <i className={currencyClassNames} /> : iconComponent}
+      {currency ? <i className={currencyClassNames} /> : icon}
       {label}
       {note && <span className="small m-l-1">{note}</span>}
       {secondary && <span className="small text-ellipsis">{secondary}</span>}
