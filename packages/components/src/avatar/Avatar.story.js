@@ -12,7 +12,7 @@ export const basic = () => {
   const outlined = boolean('outlined', true);
   const avatarContent = text('avatarContent', '✈️');
   return (
-    <Avatar size={size} outlined={outlined} badge={'L'}>
+    <Avatar size={size} outlined={outlined}>
       {avatarContent}
     </Avatar>
   );

@@ -8,7 +8,7 @@ import { Size } from '../common';
 
 const BASE_CLASS_NAME = 'avatar';
 
-const Avatar = ({ size, badge, children, outlined }) => {
+const Avatar = ({ size, children, outlined }) => {
   const classNames = classnames(BASE_CLASS_NAME, `${BASE_CLASS_NAME}--${size}`, {
     [`${BASE_CLASS_NAME}--outlined`]: outlined,
   });
