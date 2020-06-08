@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Types from 'prop-types';
 import classnames from 'classnames';
 import './Switch.css';
+import { CheckCircle, CrossCircle } from '@transferwise/icons';
 
 /**
  * Switch docs.
@@ -20,15 +21,10 @@ const Switch = ({ checked, onClick }) => {
       })}
       onClick={onClick}
     >
-      <input type="checkbox" checked={checked} />
       <span className="switch--thumb">
-        <span
-          className={classnames({
-            'close-mark': !checked,
-            'tick-mark': checked,
-          })}
-        ></span>
+        {checked ? <CheckCircle /> : <CrossCircle filled hasFillVariant />}
       </span>
+      <input type="checkbox" checked={checked} />
     </span>
   );
 };
