@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Types from 'prop-types';
 import classnames from 'classnames';
 import './Switch.css';
-import { Check } from '@transferwise/icons';
 
 /**
  * Switch docs.
@@ -12,35 +11,35 @@ import { Check } from '@transferwise/icons';
  * @usage '<Switch/>'
  **/
 
-const Switch = ({ onClick }) => {
-  const [checked, setChecked] = useState(false);
-  const handleOnClick = () => {
-    setChecked(!checked);
-  };
-
-  useEffect(() => {
-    onClick(checked);
-  }, [checked]);
-
+const Switch = ({ checked, onClick }) => {
   return (
     <span
       className={classnames('switch', {
         'switch--unchecked': !checked,
         'switch--checked': checked,
       })}
-      onClick={handleOnClick}
+      onClick={onClick}
     >
-      <input type="checkbox" checked={checked} onClick={handleOnClick} />
-      <span class="switch--thumb">
-        <Check />
+      <input type="checkbox" checked={checked} />
+      <span className="switch--thumb">
+        <span
+          className={classnames({
+            'close-mark': !checked,
+            'tick-mark': checked,
+          })}
+        ></span>
       </span>
     </span>
   );
 };
 
 Switch.propTypes = {
-  onClick: Types.func.isRequired,
+  checked: Types.boolean,
+  onClick: Types.func,
 };
-Switch.defaultProps = {};
+Switch.defaultProps = {
+  onClick: () => {},
+  checked: false,
+};
 
 export default Switch;

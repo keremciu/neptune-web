@@ -1,5 +1,6 @@
 import React from 'react';
 import Switch from './Switch';
+import { boolean } from '@storybook/addon-knobs';
 
 export default {
   component: Switch,
@@ -7,5 +8,7 @@ export default {
 };
 
 export const basic = () => {
-  return <Switch onClick={(checked) => console.log(checked)} />;
+  const checked = boolean('checked', false);
+
+  return <Switch checked={checked} />;
 };
