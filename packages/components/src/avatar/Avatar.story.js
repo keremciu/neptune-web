@@ -8,7 +8,7 @@ export default {
 };
 
 export const basic = () => {
-  const size = select('size', Object.values(Avatar.Size), Avatar.Size.LARGE);
+  const size = select('size', Object.values(Avatar.Size), Avatar.Size.MEDIUM);
   const outlined = boolean('outlined', true);
   const avatarContent = text('avatarContent', '✈️');
   return (

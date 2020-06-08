@@ -23,7 +23,7 @@ const Avatar = ({ size, badge, children, outlined }) => {
 Avatar.Size = Size;
 
 Avatar.propTypes = {
-  size: Types.oneOf([Avatar.Size.MEDIUM, Avatar.Size.LARGE]),
+  size: Types.oneOf([Avatar.Size.SMALL, Avatar.Size.MEDIUM]),
   children: Types.node.isRequired,
   outlined: Types.bool,
 };

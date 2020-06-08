@@ -1,9 +1,9 @@
 @background-color: #f2f5f7;
 @base-diameter-sm: 3rem;
-@base-diameter-lg: 4rem;
+@base-diameter-md: 4rem;
 
 @font-size-sm: @base-diameter-sm / 1.6;
-@font-size-lg: @base-diameter-lg / 1.6;
+@font-size-md: @base-diameter-md / 1.6;
 
 @avatar-base-name: avatar;
 
@@ -36,10 +36,10 @@
     }
   }
 
-  &--lg {
-    width: @base-diameter-lg;
-    height: @base-diameter-lg;
-    font-size: @font-size-lg;
+  &--md {
+    width: @base-diameter-md;
+    height: @base-diameter-md;
+    font-size: @font-size-md;
   }
 }
 
@@ -58,8 +58,8 @@
     transform: translate(-3px, -3px);
   }
 
-  &.@{avatar-base-name}--lg::before {
-    width: calc(@base-diameter-lg + 6px);
-    height: calc(@base-diameter-lg + 6px);
+  &.@{avatar-base-name}--md::before {
+    width: calc(@base-diameter-md + 6px);
+    height: calc(@base-diameter-md + 6px);
   }
 }

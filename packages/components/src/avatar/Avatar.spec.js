@@ -5,7 +5,7 @@ import Avatar from './';
 
 describe('Avatar', () => {
   let props = {
-    size: Avatar.Size.LARGE,
+    size: Avatar.Size.MEDIUM,
     children: '😎',
   };
   let wrapper;
@@ -17,7 +17,7 @@ describe('Avatar', () => {
   });
 
   it('should have size modifier on the base element', () => {
-    expect(wrapper.hasClass('avatar--lg')).toBe(true);
+    expect(wrapper.hasClass('avatar--md')).toBe(true);
   });
 
   it('should NOT have outline modifier on the base element', () => {
