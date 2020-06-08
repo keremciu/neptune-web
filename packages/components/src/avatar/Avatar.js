@@ -29,6 +29,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
+  size: Avatar.Size.MEDIUM,
   outlined: false,
 };
 
